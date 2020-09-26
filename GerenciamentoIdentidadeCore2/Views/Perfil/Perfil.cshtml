@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GerenciamentoIdentidadeCore2.Models.Perfil.IPerfil>
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+<body class="card-body">
+    <h1>Perfil</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>s
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Perfil)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DscPerfil)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Perfil)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DscPerfil)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

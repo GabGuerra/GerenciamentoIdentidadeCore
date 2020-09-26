@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GerenciamentoIdentidadeCore2.Controllers;
 using GerenciamentoIdentidadeCore2.Models;
 using GerenciamentoIdentidadeCore2.Models.Login;
 using GerenciamentoIdentidadeCore2.Repositories;
 using GerenciamentoIdentidadeCore2.Repositories.Modulo;
 using GerenciamentoIdentidadeCore2.Repositories.Repository;
+using GerenciamentoIdentidadeCore2.Repositories.Perfil;
 using GerenciamentoIdentidadeCore2.Services;
 using GerenciamentoIdentidadeCore2.Services.Modulo;
 using GerenciamentoIdentidadeCore2.Services.UsuarioGerenciamento;
@@ -62,6 +64,8 @@ namespace GerenciamentoIdentidadeCore2
 
             services.AddTransient<IUsuarioGerenciamentoService, UsuarioGerenciamentoService>();
             services.AddTransient<IUsuarioGerenciamentoRepository, UsuarioGerenciamentoRepository>();
+            services.AddTransient<IPerfilService, PerfilService>();
+            services.AddTransient<IPerfilRepository, PerfilRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

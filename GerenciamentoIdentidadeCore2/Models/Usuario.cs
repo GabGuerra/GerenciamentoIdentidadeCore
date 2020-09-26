@@ -1,4 +1,5 @@
 ﻿using GerenciamentoIdentidadeCore2.Models.Login;
+using GerenciamentoIdentidadeCore2.Models.Perfil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
