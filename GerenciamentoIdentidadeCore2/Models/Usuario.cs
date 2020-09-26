@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoIdentidadeCore2.Models
 {
-    public class Usuario : Pessoa
+    public class Usuario
     {
         public Usuario(LoginVD login)
         {
@@ -16,7 +16,8 @@ namespace GerenciamentoIdentidadeCore2.Models
         {
 
         }
-        public LoginVD Login { get; set; }
-        public Perfil perfil { get; set; }
+        public string Cpf { get; set; }
+        public string Nome { get; set; }
+        public LoginVD Login { get; set; }        
     }
 }

@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoIdentidadeCore2.Models
 {
-    public class UsuarioGerenciamento : Pessoa
+    public class PerfilVD
     {
-        public UsuarioGerenciamento()
-        {            
-        }
-        public Perfil Perfil { get; set; }
+        public int CodPerfil { get; set; }
+        public string DscPerfil { get; set; }
     }
 }

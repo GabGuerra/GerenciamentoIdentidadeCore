@@ -18,11 +18,12 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Modulo
         public void InserirModulo(IModulo modulo)
         {
             var sql = @"INSERT INTO MODULO 
-                            (COD_MODULO, NOME_MODULO) 
+                            (NOME_MODULO) 
                         VALUES
-                            (@COD_MODULO, @NOME_MODULO)";
+                            (@NOME_MODULO)";
             using (var command = new MySqlCommand(sql))
             {
+                command.Parameters.AddWithValue("NOME_MODULO", modulo.NomeModulo);                
                 ExecutarComando(command);
             }
         }

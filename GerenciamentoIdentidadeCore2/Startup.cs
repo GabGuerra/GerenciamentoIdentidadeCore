@@ -6,8 +6,10 @@ using GerenciamentoIdentidadeCore2.Models;
 using GerenciamentoIdentidadeCore2.Models.Login;
 using GerenciamentoIdentidadeCore2.Repositories;
 using GerenciamentoIdentidadeCore2.Repositories.Modulo;
+using GerenciamentoIdentidadeCore2.Repositories.Repository;
 using GerenciamentoIdentidadeCore2.Services;
 using GerenciamentoIdentidadeCore2.Services.Modulo;
+using GerenciamentoIdentidadeCore2.Services.UsuarioGerenciamento;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -51,8 +53,15 @@ namespace GerenciamentoIdentidadeCore2
 
             services.AddTransient<ILoginService, LoginServiceFake>();
             services.AddTransient<ILoginRepository, LoginRepository>();
+
             services.AddTransient<IModuloService, ModuloService>();
             services.AddTransient<IModuloRepository, ModuloRepository>();
+
+
+
+
+            services.AddTransient<IUsuarioGerenciamentoService, UsuarioGerenciamentoService>();
+            services.AddTransient<IUsuarioGerenciamentoRepository, UsuarioGerenciamentoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

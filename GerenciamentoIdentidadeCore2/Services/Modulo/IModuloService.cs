@@ -9,6 +9,6 @@ namespace GerenciamentoIdentidadeCore2.Services.Modulo
 {
     public interface IModuloService
     {
-        public Resultado InserirModulo(IModulo modulo);
+        public ResultadoVD InserirModulo(IModulo modulo);
     }
 }

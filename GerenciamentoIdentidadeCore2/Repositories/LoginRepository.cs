@@ -30,8 +30,8 @@ namespace GerenciamentoIdentidadeCore2.Repositories
    
             using (var cmd = new MySqlCommand(sql))
             {
-                cmd.Parameters.AddWithValue("@SENHA", "senha");
-                cmd.Parameters.AddWithValue("@EMAIL", "gabriel@teste.com");
+                cmd.Parameters.AddWithValue("@SENHA", senha);
+                cmd.Parameters.AddWithValue("@EMAIL", email);
                 Usuario usuario = ObterRegistro(cmd);
                 usuario.Login = new LoginVD(email, senha);
                 return usuario;

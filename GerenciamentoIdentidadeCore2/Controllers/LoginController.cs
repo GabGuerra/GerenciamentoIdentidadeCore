@@ -27,7 +27,7 @@ namespace GerenciamentoIdentidadeCore2.Controllers
 
         public JsonResult RealizarLogin(string email, string senha)
         {
-            Resultado result = new Resultado();
+            ResultadoVD result = new ResultadoVD();
             
 
             Usuario usuario = _service.RealizarLogin(email, senha);

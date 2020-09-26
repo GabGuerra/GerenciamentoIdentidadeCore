@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoIdentidadeCore2.Models.Modulo
 {
-    public class ModuloVD
+    public class ModuloVD : IModulo
     {
         public int CodModulo { get; set; }
         public string NomeModulo { get; set; }

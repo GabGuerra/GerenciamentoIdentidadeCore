@@ -1,4 +1,4 @@
-﻿<script src="~/Scripts/Modulo/Modulo.js"></script>
+﻿<script src="~/js/Modulo/Modulo.js"></script>
 @*
             ***********Layout futuro***********
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -20,15 +20,18 @@
     </div>*@
 
 <div class="row">
-    <div class="col-12" id="divCadastroModulo">
-        <div class="form-group col-4">
-            <div class="row">
-                <label for="inputNomeModulo">Nome do módulo</label>
-                <input class="form-control" id="inputNomeModulo" />
-                <button id="btnCadastrarModulo" type="button" onclick="InserirModulo()" class="btn btn-success">Inserir</button>
+    <div class="card col-12" id="divCadastroModulo">
+        <div class="card-body">
+            <h5 class="card-title" align="center">Cadastrar módulo</h5>
+            <div class="form-group col-12">
+                <div >
+                    <label for="inputNomeModulo">Nome do módulo</label>
+                    <input class="form-control col-12" id="inputNomeModulo" />
+                    <button class="btn btn-success col-12" id="btnCadastrarModulo" type="button" onclick="InserirModulo()" >Inserir</button>
+                </div>
             </div>
         </div>
-    </div>
+    </div>   
 </div>
 
 <style>

@@ -15,9 +15,9 @@ namespace GerenciamentoIdentidadeCore2.Services.Modulo
         {
             _moduloRepository = moduloRepository;
         }
-        public Resultado InserirModulo(IModulo modulo)
+        public ResultadoVD InserirModulo(IModulo modulo)
         {
-            Resultado resultado = new Resultado(true);
+            ResultadoVD resultado = new ResultadoVD(true);
 
             try
             {

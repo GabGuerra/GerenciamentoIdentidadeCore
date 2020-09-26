@@ -22,7 +22,7 @@ namespace GerenciamentoIdentidadeCore2.Controllers
             return View("ModuloIndex");
         }
 
-        public JsonResult InserirModulo(IModulo modulo)
+        public JsonResult InserirModulo(ModuloVD modulo)
         {
             return Json(_moduloService.InserirModulo(modulo));
         }
