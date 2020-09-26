@@ -5,6 +5,6 @@ namespace GerenciamentoIdentidadeCore2.Controllers
 {
     public interface IPerfilService
     {
-        public Resultado InserirPerfil(IPerfil perfil);
+        public ResultadoVD InserirPerfil(IPerfil perfil);
     }
 }

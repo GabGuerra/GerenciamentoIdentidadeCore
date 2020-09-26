@@ -16,9 +16,9 @@ namespace GerenciamentoIdentidadeCore2.Services.Perfil
         {
             _perfilRepository = perfilRepository;
         }
-        public Resultado InserirPerfil(IPerfil perfil)
+        public ResultadoVD InserirPerfil(IPerfil perfil)
         {
-            Resultado resultado = new Resultado(true);
+            ResultadoVD resultado = new ResultadoVD(true);
 
             try
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoIdentidadeCore2.Models
 {
-    public class UsuarioGerenciamento : Pessoa
+    public class UsuarioGerenciamento
     {
         public UsuarioGerenciamento()
         {            

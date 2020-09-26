@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GerenciamentoIdentidadeCore2.Services.Perfil;
 
 namespace GerenciamentoIdentidadeCore2
 {
