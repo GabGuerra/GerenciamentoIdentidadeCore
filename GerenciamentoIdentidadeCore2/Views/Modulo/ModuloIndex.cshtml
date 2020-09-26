@@ -1,0 +1,42 @@
+﻿<script src="~/Scripts/Modulo/Modulo.js"></script>
+@*
+            ***********Layout futuro***********
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-success">Inserir</button>
+            <button type="button" class="btn btn-success">Editar</button>
+            <button type="button" class="btn btn-danger">Excluir</button>
+        </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+                <input class="form-control" />
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+            </div>
+        </div>
+    </div>*@
+
+<div class="row">
+    <div class="col-12" id="divCadastroModulo">
+        <div class="form-group col-4">
+            <div class="row">
+                <label for="inputNomeModulo">Nome do módulo</label>
+                <input class="form-control" id="inputNomeModulo" />
+                <button id="btnCadastrarModulo" type="button" onclick="InserirModulo()" class="btn btn-success">Inserir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #divCadastroModulo {
+        margin-top: 5em;
+    }
+
+    #btnCadastrarModulo {
+        margin-top: 1em;
+    }
+</style>

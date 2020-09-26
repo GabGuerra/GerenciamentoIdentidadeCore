@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GerenciamentoIdentidadeCore2.Models;
+using GerenciamentoIdentidadeCore2.Models.Login;
 using GerenciamentoIdentidadeCore2.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,14 +28,21 @@ namespace GerenciamentoIdentidadeCore2.Controllers
         public JsonResult RealizarLogin(string email, string senha)
         {
             Resultado result = new Resultado();
-            result.ObjetoResultado = _service.RealizarLogin(email, senha);
-            if (result.ObjetoResultado != null)
+            
+
+            Usuario usuario = _service.RealizarLogin(email, senha);
+            if (usuario != null)
             {
                 result.Sucesso = true;
-                HttpContext.Session.SetString("usuarioLogado", JsonConvert.SerializeObject(result.ObjetoResultado));
+                HttpContext.Session.SetString("usuarioLogado", JsonConvert.SerializeObject(usuario));
             }
             result.Mensagem = result.Sucesso ? string.Empty : "Email e/ou senha incorretos.";
             return Json(result);
+        }
+
+        public IActionResult Home()
+        {
+            return View("Home/Home");
         }
     }
 }

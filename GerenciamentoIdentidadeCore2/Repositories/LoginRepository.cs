@@ -33,7 +33,7 @@ namespace GerenciamentoIdentidadeCore2.Repositories
                 cmd.Parameters.AddWithValue("@SENHA", "senha");
                 cmd.Parameters.AddWithValue("@EMAIL", "gabriel@teste.com");
                 Usuario usuario = ObterRegistro(cmd);
-                usuario.Login = new Login(email, senha);
+                usuario.Login = new LoginVD(email, senha);
                 return usuario;
             }
         }

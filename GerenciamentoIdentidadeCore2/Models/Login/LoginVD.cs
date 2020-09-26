@@ -5,17 +5,18 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoIdentidadeCore2.Models.Login
 {
-    public class Login : ILogin
+    public class LoginVD
     {
-        public Login(string Senha, string Email)
+        public LoginVD()
         {
-            this.Senha = Senha;
-            this.Email = Email;
+
         }
-        public Login()
+        public LoginVD(string senha, string email)
         {
+            this.Senha = senha;
+            this.Email = email;
         }
         public string Senha { get; set; }
-        public string Email { get; set; }
+        public string Email { get; set; }        
     }
 }

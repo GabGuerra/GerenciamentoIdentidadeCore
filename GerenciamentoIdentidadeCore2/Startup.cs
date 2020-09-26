@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GerenciamentoIdentidadeCore2.Models;
+using GerenciamentoIdentidadeCore2.Models.Login;
 using GerenciamentoIdentidadeCore2.Repositories;
+using GerenciamentoIdentidadeCore2.Repositories.Modulo;
 using GerenciamentoIdentidadeCore2.Services;
+using GerenciamentoIdentidadeCore2.Services.Modulo;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +31,13 @@ namespace GerenciamentoIdentidadeCore2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(1000);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -35,11 +45,14 @@ namespace GerenciamentoIdentidadeCore2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddControllersWithViews();
-            services.AddSession();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);            
-            services.AddTransient<ILoginService, LoginService>();
+            services.AddHttpContextAccessor();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+
+            services.AddTransient<ILoginService, LoginServiceFake>();
             services.AddTransient<ILoginRepository, LoginRepository>();
-            //services.AddTransient<ILogin>
+            services.AddTransient<IModuloService, ModuloService>();
+            services.AddTransient<IModuloRepository, ModuloRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +70,7 @@ namespace GerenciamentoIdentidadeCore2
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();            
             app.UseRouting();
 
             app.UseAuthorization();

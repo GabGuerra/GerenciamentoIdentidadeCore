@@ -8,7 +8,7 @@ namespace GerenciamentoIdentidadeCore2.Models
 {
     public class Usuario : Pessoa
     {
-        public Usuario(ILogin login)
+        public Usuario(LoginVD login)
         {
             Login = login;
         }
@@ -16,7 +16,7 @@ namespace GerenciamentoIdentidadeCore2.Models
         {
 
         }
-        public ILogin Login { get; set; }
+        public LoginVD Login { get; set; }
         public Perfil perfil { get; set; }
     }
 }

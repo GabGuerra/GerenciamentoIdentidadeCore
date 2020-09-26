@@ -1,6 +1,4 @@
-﻿alert("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-$("#LoginForm").submit(function (e) {
+﻿$("#LoginForm").submit(function (e) {
     var inputs = $("#LoginForm input");
     let senha = $('#LoginForm input[name="inputSenhaLogin"]').val();
     let email = $('#LoginForm input[name="inputEmailLogin"]').val();
@@ -13,7 +11,7 @@ $("#LoginForm").submit(function (e) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-            if (result.Sucesso)
+            if (result.sucesso)
                 RedirecionarParaPaginaInicial();
             else
                 alert("Usuario e/ou senha incorretos");
@@ -26,6 +24,6 @@ $("#LoginForm").submit(function (e) {
 
 
     function RedirecionarParaPaginaInicial() {
-        window.location.href = window.location.origin + "/Login/Home";
+        window.location.href = window.location.origin + "/Home/Index";
     };
 });

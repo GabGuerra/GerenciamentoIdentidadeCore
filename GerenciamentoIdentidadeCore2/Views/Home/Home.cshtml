@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using System.Globalization
+@inject IHttpContextAccessor HttpContextAccessor
+@{ Usuario usuario = JsonConvert.DeserializeObject<Usuario>(HttpContextAccessor.HttpContext.Session.GetString("usuarioLogado"));}
+<script src="~/js/Home/Home.js"></script>
+<div class="text-center">
+    <h1 class="display-4">Bem vindo, @CultureInfo.CurrentCulture.TextInfo.ToTitleCase(usuario.Nome)</h1>
+    <div id="menuCards">
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" align="center">Cadastrar usuário</h5>
+                    <a class="btn btn-secondary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" align="center">Cadastrar módulo</h5>
+                    <a class="btn btn-secondary" onclick="RedirecionarCadastroModulo()">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" align="center">Perfil</h5>
+                    <a class="btn btn-secondary" onclick="RedirecionarCadastroPerfil()">Cadastrar Perfil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #menuCards {
+        margin-top: 20% !important;
+        margin-left: 9% !important;
+    }
+
+    .card {
+        margin-left: 5% !important;
+    }
+
+        .card a {
+            margin-left: 0.8em;
+        }
+
+    a {
+        color: #fff !important
+    }
+</style>

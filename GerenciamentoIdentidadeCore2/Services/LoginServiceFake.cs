@@ -11,7 +11,7 @@ namespace GerenciamentoIdentidadeCore2.Services
     {
         public Usuario RealizarLogin(string email, string senha)
         {
-            return new Usuario() { Cpf = "12312312321", Nome = "gabriel", Login = new Login() { Email = "sadfasdfasdfads", Senha = "sadfasdfasdfasdfsd" } };
+            return new Usuario() { Cpf = "12312312321", Nome = "gabriel", Login = new LoginVD() { Email = "sadfasdfasdfads", Senha = "sadfasdfasdfasdfsd" } };
         }
     }
 }
