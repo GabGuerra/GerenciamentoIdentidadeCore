@@ -31,5 +31,11 @@ namespace GerenciamentoIdentidadeCore2.Services.Modulo
 
             return resultado;
         }
+
+        public List<ModuloVD> CarregarListaModulo() 
+        {
+            return _moduloRepository.CarregarListaModulo();
+        }
+
     }
 }

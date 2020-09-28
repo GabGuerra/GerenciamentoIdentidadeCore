@@ -30,7 +30,7 @@ namespace GerenciamentoIdentidadeCore2.Controllers
             ResultadoVD result = new ResultadoVD();
             
 
-            Usuario usuario = _service.RealizarLogin(email, senha);
+            UsuarioVD usuario = _service.RealizarLogin(email, senha);
             if (usuario != null)
             {
                 result.Sucesso = true;

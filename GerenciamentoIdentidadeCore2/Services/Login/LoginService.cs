@@ -17,7 +17,7 @@ namespace GerenciamentoIdentidadeCore2.Services
             _repository = repository;
         }
 
-        public Usuario RealizarLogin(string email, string senha)
+        public UsuarioVD RealizarLogin(string email, string senha)
         {
             return _repository.RealizarLogin(email, senha);
         }

@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 namespace GerenciamentoIdentidadeCore2.Models.Perfil
 {
 
-    public class PerfilVD:IPerfil
+    public class PerfilVD
     {
-        public int Perfil { get; set; }
-        public string DscPerfil { get; set; }
+        public PerfilVD()
+        {
+        }
+        public PerfilVD(int codPerfil)
+        {
+            CodPerfil = codPerfil;
+        }
+        public PerfilVD(int codPerfil, string nomePerfil)
+        {
+            CodPerfil = codPerfil;
+            NomePerfil = nomePerfil;
+        }
+        public int CodPerfil { get; set; }
+        public string NomePerfil { get; set; }
     }
 }

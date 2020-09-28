@@ -8,6 +8,8 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Perfil
 {
     public interface IPerfilRepository
     {
-        public void InserirPerfil(IPerfil perfil);
+        public void InserirPerfil(PerfilVD perfil);
+
+        public List<PerfilVD> CarregarListaPerfis();
     }
 }

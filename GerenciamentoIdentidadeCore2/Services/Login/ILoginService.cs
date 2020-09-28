@@ -8,6 +8,6 @@ namespace GerenciamentoIdentidadeCore2.Services
 {
     public interface ILoginService
     {
-        Usuario RealizarLogin(string email, string senha);
+        UsuarioVD RealizarLogin(string email, string senha);
     }
 }

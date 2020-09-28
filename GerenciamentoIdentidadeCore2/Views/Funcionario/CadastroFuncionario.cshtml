@@ -1,0 +1,43 @@
+﻿@Model
+@using  GerenciamentoIdentidadeCore2.Models.Perfil;
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card col-12">
+    <div class="card-body">
+        <form id="CadastroFuncionarioForm">
+            <h5 class="card-title" align="center">Cadastrar funcionário</h5>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input id="inputNomeFuncionario" name="nome" type="text" class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">CPF</label>
+                <input id="inputCpfCadFuncionario" name="cpf" type="text" class="form-control" placeholder="CPF">
+            </div>
+            <div class="form-group">
+                <label for="selCargo">Perfil</label>
+                <select id="selCargo" name="selCargo" class="form-control">
+                    <option value=0></option>
+                    @foreach (PerfilVD i in ViewBag.ListaPerfis)
+                    {
+                        <option value="@i.CodPerfil">@i.NomePerfil</option>
+                    }
+                </select>
+            </div>
+            <button class="btn btn-success col-12" type="submit" value="submit">Registrar</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script src="~/js/Usuario/CadastroFuncionario.js"></script>
+<style>
+    .chkLabel {
+        margin-left: 4px
+    }
+
+    .chkbox {
+        margin-left: 4px
+    }
+</style>

@@ -1,13 +1,13 @@
 ﻿function RedirecionarCadastroPerfil() {    
-    RedirecionaParaPagina("Perfil","CadastroPerfilIndex");
+    RedirecionaParaPagina("Perfil","CadastroPerfil");
 };
 
 function RedirecionarCadastroModulo() {
     RedirecionaParaPagina("Modulo","Index");
 }
 
-function RedirecionarCadastroUsuarioGerenciamento() {
-    RedirecionaParaPagina("UsuarioGerenciamento", "Index");
+function RedirecionarCadastroFuncionario() {
+    RedirecionaParaPagina("Funcionario", "Index");
 }
 
 

@@ -13,10 +13,10 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Perfil)
+                    @Html.DisplayNameFor(model => model.CodPerfil)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DscPerfil)
+                    @Html.DisplayNameFor(model => model.NomePerfil)
                 </th>
                 <th></th>
             </tr>
@@ -26,10 +26,10 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Perfil)
+                        @Html.DisplayFor(modelItem => item.CodPerfil)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DscPerfil)
+                        @Html.DisplayFor(modelItem => item.NomePerfil)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

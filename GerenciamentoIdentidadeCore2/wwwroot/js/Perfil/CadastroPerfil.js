@@ -1,7 +1,7 @@
 ﻿$("#CadastroPerfilForm").submit(function (e) {    
     let Perfil = {
-        Perfil: 0,
-        DscPerfil: $('input[name="InputDscPerfil"]').val()
+        CodPerfil: 0,
+        NomePerfil: $('input[name="InputDscPerfil"]').val()
     };
     e.preventDefault();    
     $.ajax({
@@ -12,7 +12,7 @@
         success: function (result) {
             if (result.sucesso) {
                 alert("Sucesso");
-
+                RedirecionaParaPagina("Perfil", "CadastroPerfil");
             }
             else {
                 alert("Erro ao cadastrar Perfil.");

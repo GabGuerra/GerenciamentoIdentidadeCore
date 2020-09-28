@@ -1,14 +1,4 @@
-﻿
-@{
-    ViewData["Title"] = "LoginIndex";
-}
-
-@Model
-@{
-    ViewBag.Title = "Index";
-}
-
-<body class="card-body">
+﻿<body class="card-body">
     <div id="login">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -24,7 +14,7 @@
                                 <input name="inputSenhaLogin" type="password" class="form-control" placeholder="********" />
                             </div>
                             <div class="form-group">
-                                <small id="emailHelp" class="form-text text-muted">Não possui uma conta? @Html.ActionLink("Crie agora.", "../Cadastro/Index")     </small>
+                                <small id="emailHelp" class="form-text text-muted">Não possui uma conta?,<a style="color:blue" class="card-link" onclick="RedirecionaParaPagina('Usuario','CadastroUsuario')">Crie agora</a> </small>
                             </div>
                             <div class="form-group">
                                 <button type="submit" value="submit" class="btn btn-success text-center" style="margin-left: 35%">Login</button>
@@ -37,11 +27,19 @@
     </div>
 </body>
 <script src="~/js/Login/Login.js"></script>
+<script>
+    $(document).ready(function () {
+        $("html header").hide();
+    });
+</script>
 <style>
     body {
         margin: 0;
-        padding: 0;        
+        padding: 0;
         height: 100vh;
     }
-
+    a {
+     text-decoration:underline !important;    
+    }
+</style>
 

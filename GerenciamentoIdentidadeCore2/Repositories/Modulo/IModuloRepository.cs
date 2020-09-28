@@ -9,5 +9,6 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Modulo
     public interface IModuloRepository 
     {
         public void InserirModulo(IModulo modulo);
+        public List<ModuloVD> CarregarListaModulo();
     }
 }

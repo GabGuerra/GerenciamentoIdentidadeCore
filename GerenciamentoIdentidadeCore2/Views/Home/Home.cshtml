@@ -5,7 +5,7 @@
 @using Newtonsoft.Json;
 @using System.Globalization
 @inject IHttpContextAccessor HttpContextAccessor
-@{ Usuario usuario = JsonConvert.DeserializeObject<Usuario>(HttpContextAccessor.HttpContext.Session.GetString("usuarioLogado"));}
+@{ UsuarioVD usuario = JsonConvert.DeserializeObject<UsuarioVD>(HttpContextAccessor.HttpContext.Session.GetString("usuarioLogado"));}
 <script src="~/js/Home/Home.js"></script>
 <div class="text-center">
     <h1 class="display-4">Bem vindo, @CultureInfo.CurrentCulture.TextInfo.ToTitleCase(usuario.Nome)</h1>
@@ -13,20 +13,20 @@
         <div class="row">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title" align="center">Cadastrar usuário</h5>
-                    <a class="btn btn-secondary" onclick="RedirecionarCadastroUsuarioGerenciamento()">Go somewhere</a>
+                    <h5 class="card-title" align="center">Funcionário</h5>
+                    <a class="btn btn-success" onclick="RedirecionarCadastroFuncionario()">Cadastrar funcionário</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title" align="center">Cadastrar módulo</h5>
-                    <a class="btn btn-secondary" onclick="RedirecionarCadastroModulo()">Go somewhere</a>
+                    <h5 class="card-title" align="center">Módulo</h5>
+                    <a class="btn btn-success" onclick="RedirecionarCadastroModulo()">Cadastrar módulo</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title" align="center">Perfil</h5>
-                    <a class="btn btn-secondary" onclick="RedirecionarCadastroPerfil()">Cadastrar Perfil</a>
+                    <a class="btn btn-success" onclick="RedirecionarCadastroPerfil()">Cadastrar Perfil</a>
                 </div>
             </div>
         </div>

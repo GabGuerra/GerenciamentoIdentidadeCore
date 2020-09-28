@@ -19,12 +19,18 @@ namespace GerenciamentoIdentidadeCore2.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.ListaModulos = _moduloService.CarregarListaModulo();
             return View("ModuloIndex");
         }
 
         public JsonResult InserirModulo(ModuloVD modulo)
         {
             return Json(_moduloService.InserirModulo(modulo));
+        }
+
+        public IActionResult GridModulos() 
+        {            
+            return PartialView("GridModulos");
         }
     }
 }

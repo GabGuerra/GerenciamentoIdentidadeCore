@@ -16,7 +16,7 @@ namespace GerenciamentoIdentidadeCore2.Services.Perfil
         {
             _perfilRepository = perfilRepository;
         }
-        public ResultadoVD InserirPerfil(IPerfil perfil)
+        public ResultadoVD InserirPerfil(PerfilVD perfil)
         {
             ResultadoVD resultado = new ResultadoVD(true);
 
@@ -31,6 +31,11 @@ namespace GerenciamentoIdentidadeCore2.Services.Perfil
             }
 
             return resultado;
+        }
+
+        public List<PerfilVD> CarregarListaPerfis() 
+        {
+            return _perfilRepository.CarregarListaPerfis();
         }
     }
 }

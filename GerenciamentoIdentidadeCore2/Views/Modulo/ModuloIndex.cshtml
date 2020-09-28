@@ -1,45 +1,65 @@
 ﻿<script src="~/js/Modulo/Modulo.js"></script>
-@*
-            ***********Layout futuro***********
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-success">Inserir</button>
-            <button type="button" class="btn btn-success">Editar</button>
-            <button type="button" class="btn btn-danger">Excluir</button>
-        </div>
 
-    <div class="row">
-        <div class="col-4">
-            <div class="list-group" id="list-tab" role="tablist">
-                <input class="form-control" />
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-            </div>
-        </div>
-    </div>*@
-
-<div class="row">
-    <div class="card col-12" id="divCadastroModulo">
+<div id="container" class="row">
+    <div class="card col-12" id="containerModulo">
+        <ul class="nav nav-tabs">
+            <li id="abaRegistrarModulo" onclick="ControlaGridAtivo(abaRegistrarModulo)" class="nav-item">
+                <a id="navLinkRegistrarModulo" class="nav-link active" href="#">Registrar módulo</a>
+            </li>
+            <li id="abaPesquisarModulo" onclick="ControlaGridAtivo(abaPesquisarModulo)" class="nav-item">
+                <a class="nav-link" href="#">Pesquisar módulos</a>
+            </li>
+        </ul>
         <div class="card-body">
-            <h5 class="card-title" align="center">Cadastrar módulo</h5>
-            <div class="form-group col-12">
-                <div >
-                    <label for="inputNomeModulo">Nome do módulo</label>
-                    <input class="form-control col-12" id="inputNomeModulo" />
-                    <button class="btn btn-success col-12" id="btnCadastrarModulo" type="button" onclick="InserirModulo()" >Inserir</button>
+
+            <!--Cadastro de módulo-->
+            <div id="gridRegistrarModulo">
+                <h5 class="card-title" align="center">Cadastrar módulo</h5>
+                <div class="form-group col-12">
+                    <div>
+                        <label for="inputNomeModulo">Nome do módulo</label>
+                        <input class="form-control col-12" id="inputNomeModulo" />
+                        <button class="btn btn-success col-12" id="btnCadastrarModulo" type="button" onclick="InserirModulo()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Pesquisa de módulo-->
+            <div class="col-12" id="gridPesquisarModulo">
+                <div class="input-group md-form form-sm form-2 pl-0 col-12">
+                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <span class="input-group-text red lighten-3" id="basic-text1">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="recebeGridListaModulos">
+                    @await Html.PartialAsync("GridModulos")
                 </div>
             </div>
         </div>
-    </div>   
+
+    </div>
 </div>
 
+
+<script>   
+</script>
 <style>
-    #divCadastroModulo {
+    #container {
         margin-top: 5em;
     }
 
     #btnCadastrarModulo {
         margin-top: 1em;
+    }
+
+    #navLinkRegistrarModulo {
+        border-left: none !important;
     }
 </style>

@@ -1,4 +1,8 @@
-﻿function InserirModulo() {
+﻿$(document).ready(function () {
+    $("#gridPesquisarModulo").hide();    
+});
+
+function InserirModulo() {
     let modulo = {
         CodModulo: 0,
         NomeModulo: $("#inputNomeModulo").val()
@@ -7,18 +11,28 @@
         url: "../Modulo/InserirModulo",
         data: modulo,
         contentType: "application/json; charset=utf-8",
-        dataType: "json",        
+        dataType: "json",
         success: function (result) {
             if (!result.sucesso)
                 alert(result.mensagem);
             else {
                 alert("Módulo registrado com sucesso!");
-                RedirecionaParaPagina("Modulo", "Index")
+                RedirecionaParaPagina("Modulo", "Index");
             }
         },
         error: function (result) {
             alert(result.mensagem);
-        }       
+        }
     });
 };
 
+function ControlaGridAtivo(event) {
+    let idAbaAtiva = event.id;
+    let idGridAtivo = idAbaAtiva.replace("aba", "");
+
+    $('[id^="aba"] a').removeClass("active");
+    $("#" + idAbaAtiva + " a").addClass("active");
+
+    $('[id^="grid"]').hide();
+    $("#grid" + idGridAtivo).show();
+};

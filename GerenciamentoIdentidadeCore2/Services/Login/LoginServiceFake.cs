@@ -9,9 +9,9 @@ namespace GerenciamentoIdentidadeCore2.Services
 {
     public class LoginServiceFake : ILoginService
     {
-        public Usuario RealizarLogin(string email, string senha)
+        public UsuarioVD RealizarLogin(string email, string senha)
         {
-            return new Usuario() { Cpf = "12312312321", Nome = "gabriel", Login = new LoginVD() { Email = "sadfasdfasdfads", Senha = "sadfasdfasdfasdfsd" } };
+            return new UsuarioVD() { Cpf = "12312312321", Nome = "gabriel", Login = new LoginVD() { Email = "sadfasdfasdfads", Senha = "sadfasdfasdfasdfsd" } };
         }
     }
 }

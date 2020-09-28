@@ -1,26 +1,23 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GerenciamentoIdentidadeCore2.Controllers;
-using GerenciamentoIdentidadeCore2.Models;
-using GerenciamentoIdentidadeCore2.Models.Login;
 using GerenciamentoIdentidadeCore2.Repositories;
 using GerenciamentoIdentidadeCore2.Repositories.Modulo;
 using GerenciamentoIdentidadeCore2.Repositories.Repository;
 using GerenciamentoIdentidadeCore2.Repositories.Perfil;
 using GerenciamentoIdentidadeCore2.Services;
 using GerenciamentoIdentidadeCore2.Services.Modulo;
-using GerenciamentoIdentidadeCore2.Services.UsuarioGerenciamento;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GerenciamentoIdentidadeCore2.Services.Perfil;
+using GerenciamentoIdentidadeCore2.Services.Funcionario;
+using GerenciamentoIdentidadeCore2.Repositories.Usuario;
+using GerenciamentoIdentidadeCore2.Services.Usuario;
 
 namespace GerenciamentoIdentidadeCore2
 {
@@ -50,23 +47,24 @@ namespace GerenciamentoIdentidadeCore2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddControllersWithViews();
+            services.AddMvc().AddRazorRuntimeCompilation();
             services.AddHttpContextAccessor();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);            
 
-
-            services.AddTransient<ILoginService, LoginServiceFake>();
-            services.AddTransient<ILoginRepository, LoginRepository>();
+            services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<ILoginRepository,LoginRepository>();
 
             services.AddTransient<IModuloService, ModuloService>();
             services.AddTransient<IModuloRepository, ModuloRepository>();
 
+            services.AddTransient<IFuncionarioService, FuncionarioService>();
+            services.AddTransient<IFuncionarioRepository, UsuarioGerenciamentoRepository>();
 
-
-
-            services.AddTransient<IUsuarioGerenciamentoService, UsuarioGerenciamentoService>();
-            services.AddTransient<IUsuarioGerenciamentoRepository, UsuarioGerenciamentoRepository>();
             services.AddTransient<IPerfilService, PerfilService>();
             services.AddTransient<IPerfilRepository, PerfilRepository>();
+
+            services.AddTransient<IUsuarioService, UsuarioService>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

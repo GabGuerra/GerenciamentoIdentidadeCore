@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoIdentidadeCore2.Repositories
 {
-    public class LoginRepository : MySqlRepository<Usuario>, ILoginRepository
+    public class LoginRepository : MySqlRepository<UsuarioVD>, ILoginRepository
     {
         public LoginRepository(IConfiguration config) : base(config)
         {}
 
-        public Usuario RealizarLogin(string email, string senha)
+        public UsuarioVD RealizarLogin(string email, string senha)
         {
             string sql = @"SELECT 
                                U.NOME_USUARIO,
@@ -32,7 +32,7 @@ namespace GerenciamentoIdentidadeCore2.Repositories
             {
                 cmd.Parameters.AddWithValue("@SENHA", senha);
                 cmd.Parameters.AddWithValue("@EMAIL", email);
-                Usuario usuario = ObterRegistro(cmd);
+                UsuarioVD usuario = ObterRegistro(cmd);
                 usuario.Login = new LoginVD(email, senha);
                 return usuario;
             }
@@ -43,9 +43,9 @@ namespace GerenciamentoIdentidadeCore2.Repositories
 
         }
 
-        public override Usuario PopularDados(MySqlDataReader dr)
+        public override UsuarioVD PopularDados(MySqlDataReader dr)
         {
-            return new Usuario
+            return new UsuarioVD
             {
                 Cpf = dr["CPF"].ToString(),
                 Nome = dr["NOME_USUARIO"].ToString()
