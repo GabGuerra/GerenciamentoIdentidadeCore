@@ -37,5 +37,37 @@ namespace GerenciamentoIdentidadeCore2.Services.Modulo
             return _moduloRepository.CarregarListaModulo();
         }
 
+        public ResultadoVD EditarModulo(IModulo modulo)
+        {
+            ResultadoVD resultado = new ResultadoVD(true);
+
+            try
+            {
+                _moduloRepository.EditarModulo(modulo);
+            }
+            catch (Exception ex)
+            {
+                resultado.Mensagem = ex.Message;
+                resultado.Sucesso = false;
+            }
+
+            return resultado;
+        }
+        public ResultadoVD RemoverModulo(IModulo modulo)
+        {
+            ResultadoVD resultado = new ResultadoVD(true);
+
+            try
+            {
+                _moduloRepository.RemoverModulo(modulo);
+            }
+            catch (Exception ex)
+            {
+                resultado.Mensagem = ex.Message;
+                resultado.Sucesso = false;
+            }
+
+            return resultado;
+        }
     }
 }

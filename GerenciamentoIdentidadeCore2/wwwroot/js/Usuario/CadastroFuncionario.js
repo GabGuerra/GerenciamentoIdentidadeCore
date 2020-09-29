@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    $("#gridPesquisarFuncionario").hide();
+
     SetarMascaraCpf("#inputCpfCadFuncionario");
 
     $("#CadastroUsuarioGerenciamentoForm").submit(function (e) {
@@ -26,4 +28,9 @@
             }
         });
     });
+
+
+    function RemoverFuncionario(cpf) {
+        alert(cpf)
+    }
 });

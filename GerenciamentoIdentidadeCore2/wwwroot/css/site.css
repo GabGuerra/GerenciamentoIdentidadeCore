@@ -98,3 +98,7 @@ body {
 a {
     cursor:pointer;
 }
+
+svg:hover {
+    fill: blue
+}

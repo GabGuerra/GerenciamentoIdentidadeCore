@@ -1,7 +1,8 @@
 ﻿$(document).ready(function () {
-    $("#gridPesquisarModulo").hide();    
+    $("#gridPesquisarModulo").hide();
 });
 
+//#region INSERE MODULO
 function InserirModulo() {
     let modulo = {
         CodModulo: 0,
@@ -25,14 +26,65 @@ function InserirModulo() {
         }
     });
 };
+//#endregion
+//#region REMOVE MODULO
+function RemoverModulo(codModulo) {
+    let modulo = {
+        CodModulo: codModulo,
+        NomeModulo: ""
+    };
+    $.ajax({
+        url: "../Modulo/RemoverModulo",
+        data: modulo,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            if (!result.sucesso)
+                alert(result.mensagem);
+            else {
+                alert("Módulo Excluido com sucesso!");
+                RedirecionaParaPagina("Modulo", "Index");
+            }
+        },
+        error: function (result) {
+            alert(result.mensagem);
+        }
+    });
+}
+//#endregion
+//#region EDITA MODULO
+$('#modalEdicao').on('show.bs.modal', function (event) {
+    let auxClick = $(event.relatedTarget)
+    let dados = auxClick.data('whatever')
+    
+    $("#idModulo").val(dados)
+})
+function SalvarEditModulo() {  
+    let modulo = {
+        CodModulo: $("#idModulo").val(),
+        NomeModulo: $("#NomeModulo").val()
+    };
+    $.ajax({
+        url: "../Modulo/EditarModulo",
+        data: modulo,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            if (!result.sucesso)
+                alert(result.mensagem);
+            else {
+                alert("Módulo Atualizado com sucesso!");                
+                RedirecionaParaPagina("Modulo", "Index");
+            }
+        },
+        error: function (result) {
+            alert(result.mensagem);
+        }
+    });
+}
+//#endregion
 
-function ControlaGridAtivo(event) {
-    let idAbaAtiva = event.id;
-    let idGridAtivo = idAbaAtiva.replace("aba", "");
 
-    $('[id^="aba"] a').removeClass("active");
-    $("#" + idAbaAtiva + " a").addClass("active");
 
-    $('[id^="grid"]').hide();
-    $("#grid" + idGridAtivo).show();
-};
+
+

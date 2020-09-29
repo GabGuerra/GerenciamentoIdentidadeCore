@@ -10,5 +10,6 @@ namespace GerenciamentoIdentidadeCore2.Services.Funcionario
     public interface IFuncionarioService
     {
         public ResultadoVD InserirFuncionario(FuncionarioVD funcionario);
+        public List<FuncionarioVD> CarregarListaFuncionarios();
     }
 }

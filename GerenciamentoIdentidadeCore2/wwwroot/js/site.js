@@ -35,3 +35,14 @@ function successMessage(header, mensagem, callback) {
 function SetarMascaraCpf(idCampoCpf) {    
     $(idCampoCpf).mask('000.000.000-00', { reverse: false });
 };
+
+function ControlaGridAtivo(event) {
+    let idAbaAtiva = event.id;
+    let idGridAtivo = idAbaAtiva.replace("aba", "");
+
+    $('[id^="aba"] a').removeClass("active");
+    $("#" + idAbaAtiva + " a").addClass("active");
+
+    $('[id^="grid"]').hide();
+    $("#grid" + idGridAtivo).show();
+};

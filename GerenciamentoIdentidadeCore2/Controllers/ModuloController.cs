@@ -28,8 +28,18 @@ namespace GerenciamentoIdentidadeCore2.Controllers
             return Json(_moduloService.InserirModulo(modulo));
         }
 
-        public IActionResult GridModulos() 
-        {            
+        public JsonResult EditarModulo(ModuloVD modulo)
+        {      
+            return Json(_moduloService.EditarModulo(modulo));
+        }
+         public JsonResult RemoverModulo(ModuloVD modulo)
+        {
+          
+            return Json(_moduloService.RemoverModulo(modulo));
+        }
+
+        public IActionResult GridModulos()
+        {
             return PartialView("GridModulos");
         }
     }
