@@ -28,9 +28,10 @@ namespace GerenciamentoIdentidadeCore2.Controllers
         }
 
         // Cadastrar Perfil 
-        public JsonResult InserirPerfil(PerfilVD perfil)
+        [HttpPost]
+        public JsonResult InserirPerfilPermissao(PerfilVD perfil, int[] listaModulosPermitidos)
         {
-            return Json(_perfilService.InserirPerfil(perfil));            
+            return Json(_perfilService.InserirPerfilPermissao(perfil, listaModulosPermitidos));            
         }
     }
 }

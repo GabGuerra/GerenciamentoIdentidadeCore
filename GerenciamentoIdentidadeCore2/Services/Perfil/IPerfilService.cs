@@ -6,7 +6,7 @@ namespace GerenciamentoIdentidadeCore2.Controllers
 {
     public interface IPerfilService
     {
-        public ResultadoVD InserirPerfil(PerfilVD perfil);
+        public ResultadoVD InserirPerfilPermissao(PerfilVD perfil, int[] listaModulosPermitidos);        
 
         public List<PerfilVD> CarregarListaPerfis();
     }

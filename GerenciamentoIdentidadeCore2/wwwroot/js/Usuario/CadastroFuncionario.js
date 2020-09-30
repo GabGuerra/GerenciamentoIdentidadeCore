@@ -1,17 +1,16 @@
 ﻿$(document).ready(function () {
     SetarMascaraCpf("#inputCpfCadFuncionario");
 
-    $("#CadastroUsuarioGerenciamentoForm").submit(function (e) {
+    $("#CadastroFuncionarioForm").submit(function (e) {
         e.preventDefault();
-
-
-        let cpf = $('#inputNomeFuncionario').val();
-        let nome = $('#inputCpfCadFuncionario').val();
-        let codPerfil = Number("#selCargo").val();
+        
+        let cpf = $('#inputCpfCadFuncionario').val();
+        let nome = $('#inputNomeFuncionario').val();
+        let codPerfil = $('#selCargo').val();
 
         $.ajax({
 
-            url: "/UsuarioGerenciamento/InserirFunc",
+            url: "/Funcionario/InserirFuncionario",
             data: { cpf: cpf, nome: nome, codPerfil: codPerfil },
             contentType: "application/json; charset=utf-8",
             dataType: "json",

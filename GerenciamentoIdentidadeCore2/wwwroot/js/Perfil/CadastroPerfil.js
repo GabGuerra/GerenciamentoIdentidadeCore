@@ -1,12 +1,22 @@
 ﻿$("#CadastroPerfilForm").submit(function (e) {    
-    let Perfil = {
+    let perfil = {
         CodPerfil: 0,
         NomePerfil: $('input[name="InputDscPerfil"]').val()
     };
+
+    let listaModulosPermitidos = [];
+
+    $("[id^=chkPermissaoModulo_]").each(function() {
+        let $checkbox = $(this);
+
+        if ($checkbox.prop("checked"))
+            listaModulosPermitidos.push(Number($checkbox.val()));
+    });
+
     e.preventDefault();    
-    $.ajax({
-        url: "/Perfil/InserirPerfil",
-        data: Perfil,
+    $.ajax({        
+        url: "/Perfil/InserirPerfilPermissao",
+        data: JSON.stringify({ perfil: perfil, listaModulosPermitidos: listaModulosPermitidos }),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {

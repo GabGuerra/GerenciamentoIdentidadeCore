@@ -16,13 +16,18 @@ namespace GerenciamentoIdentidadeCore2.Services.Perfil
         {
             _perfilRepository = perfilRepository;
         }
-        public ResultadoVD InserirPerfil(PerfilVD perfil)
+        public ResultadoVD InserirPerfilPermissao(PerfilVD perfil, int[] listaModulosPermitidos)
         {
             ResultadoVD resultado = new ResultadoVD(true);
 
             try
             {
                 _perfilRepository.InserirPerfil(perfil);
+
+                foreach (var i in listaModulosPermitidos)
+                {
+                    _perfilRepository.InserirPerfilModulo(perfil.CodPerfil, i);
+                }
             }
             catch (Exception ex)
             {

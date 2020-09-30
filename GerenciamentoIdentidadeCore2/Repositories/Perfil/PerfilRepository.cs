@@ -23,6 +23,18 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Perfil
             };
         }
 
+        public void InserirPerfilModulo(int codPerfil, int codModulo)
+        {
+            var sql = "INSERT INTO PERFIL_MODULO (@COD_PERFIL,@COD_MODULO)";
+            using (var cmd = new MySqlCommand(sql))
+            {
+                cmd.Parameters.AddWithValue("@COD_PERFIL", codPerfil);
+                cmd.Parameters.AddWithValue("@COD_MODULO", codModulo);
+
+                ExecutarComando(cmd);
+            };
+        }
+
         public List<PerfilVD> CarregarListaPerfis()
         {
             List<PerfilVD> listaPerfil = new List<PerfilVD>();
