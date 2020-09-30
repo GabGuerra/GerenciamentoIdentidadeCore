@@ -25,7 +25,8 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
 	                           F.NOME_FUNCIONARIO,
                                F.COD_PERFIL
                                FROM
-	                           FUNCIONARIO F INNER JOIN PERFIL P ON F.COD_PERFIL = P.COD_PERFIL;";
+	                           FUNCIONARIO F INNER JOIN PERFIL P ON F.COD_PERFIL = P.COD_PERFIL
+                               ORDER BY F.NOME_FUNCIONARIO; ";
 
             using (var cmd = new MySqlCommand(sql))
                 listaFuncionario = ObterRegistros(cmd).ToList();

@@ -62,8 +62,11 @@ function RemoverModulo(codModulo) {
 //#endregion
 //#region EDITA MODULO
 $('#modalEdicao').on('show.bs.modal', function (event) {
-    let auxClick = $(event.relatedTarget)   
-    $("#NomeModulo").val($("#NomeModuloSelecionado").val())
+    let auxClick = $(event.relatedTarget)
+    let index = auxClick.data('whatever')
+    let objAux = $("tr").eq(index).data();
+    $("#NomeModulo").val(objAux.nomemodulo)
+    $("#CodModuloSelecionado").val(objAux.codmodulo)
 })
 function SalvarEditModulo() {  
     let modulo = {

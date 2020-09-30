@@ -14,9 +14,6 @@ namespace GerenciamentoIdentidadeCore2.Services.Funcionario
         {
             _repository = funcionarioRepository;
         }
-
-
-
         public List<FuncionarioVD> CarregarListaFuncionarios()
         {
             return _repository.CarregarListaFuncionarios();
@@ -64,6 +61,22 @@ namespace GerenciamentoIdentidadeCore2.Services.Funcionario
             }
             return resultado;
         }
+        public ResultadoVD RemoverFuncionario(string cpf)
+        {
+            ResultadoVD resultado = new ResultadoVD(true);
+
+            try
+            {
+                //remove funcionario
+                _repository.RemoverFuncionario(cpf);
+            }
+            catch (Exception ex)
+            {
+                resultado.Sucesso = false;
+                resultado.Mensagem = $"Não foi possível remover o usuário. {Environment.NewLine} {ex.Message}";
+            }
+            return resultado;
+        }
         public ResultadoVD ValidaFuncionario(FuncionarioVD funcionario)
         {
             ResultadoVD resultado = new ResultadoVD(true);
@@ -80,21 +93,6 @@ namespace GerenciamentoIdentidadeCore2.Services.Funcionario
             return resultado;
         }
 
-        public ResultadoVD RemoverFuncionario(string cpf)
-        {
-            ResultadoVD resultado = new ResultadoVD(true);
-
-            try
-            {
-                //remove funcionario
-                _repository.RemoverFuncionario(cpf);        
-            }
-            catch (Exception ex)
-            {
-                resultado.Sucesso = false;
-                resultado.Mensagem = $"Não foi possível remover o usuário. {Environment.NewLine} {ex.Message}";
-            }
-            return resultado;
-        }
+        
     }
 }
