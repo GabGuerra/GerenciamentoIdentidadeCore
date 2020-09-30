@@ -27,6 +27,15 @@ namespace GerenciamentoIdentidadeCore2.Controllers
         {
             FuncionarioVD funcionario = new FuncionarioVD(cpf, nome, new PerfilVD(codPerfil));
             return Json(_serviceFuncionario.InserirFuncionario(funcionario));
+        }  
+        public JsonResult AtualizarFuncionario(string cpf, string nome, int codPerfil)
+        {
+            FuncionarioVD funcionario = new FuncionarioVD(cpf, nome, new PerfilVD(codPerfil));
+            return Json(_serviceFuncionario.AtualizarFuncionario(funcionario));
+        }   
+        public JsonResult RemoverFuncionario(string cpf)
+        {          
+            return Json(_serviceFuncionario.RemoverFuncionario(cpf));
         }
         public IActionResult GridFuncionarios()
         {

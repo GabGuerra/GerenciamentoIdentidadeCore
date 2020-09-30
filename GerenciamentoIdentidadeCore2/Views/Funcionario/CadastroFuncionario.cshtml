@@ -7,16 +7,16 @@
     <div class="card col-12" id="containerFuncionario">
         <ul class="nav nav-tabs">
             <li id="abaRegistrarFuncionario" onclick="ControlaGridAtivo(abaRegistrarFuncionario)" class="nav-item">
-                <a id="navLinkRegistrarModulo" class="nav-link active" href="#">Registrar Funcionario</a>
+                <a id="navLinkRegistrarModulo" class="nav-link active" href="#">Registrar Funcionário</a>
             </li>
             <li id="abaPesquisarFuncionario" onclick="ControlaGridAtivo(abaPesquisarFuncionario)" class="nav-item">
-                <a class="nav-link" href="#">Pesquisar Funcionario</a>
+                <a class="nav-link" href="#">Pesquisar Funcionário</a>
             </li>
         </ul>
         <div class="card-body">
             <!-- Cadastro de funcionario-->
             <div id="gridRegistrarFuncionario" class="card-body">
-                <form>
+                <form id="CadastroFuncionarioForm"> 
                     <h5 class="card-title" align="center">Cadastrar funcionário</h5>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nome</label>
@@ -44,15 +44,15 @@
             <!--Pesquisa de Funcionario-->
             <div class="col-12" id="gridPesquisarFuncionario">
                 <div class="input-group md-form form-sm form-2 pl-0 col-12">
-                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
+                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="InputPesquisaFuncionario">
+                    @*<div class="input-group-append">
                         <span class="input-group-text red lighten-3" id="basic-text1">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
                                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
                             </svg>
                         </span>
-                    </div>
+                    </div>*@
                 </div>
 
                 <div id="recebeGridListaFuncionarios">

@@ -1,7 +1,15 @@
 ﻿$(document).ready(function () {
     $("#gridPesquisarModulo").hide();
+   
 });
-
+//#region FUNCIONAMENTO DO INPUT PESQUISA
+$("#InputPesquisaModulo").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+});
+//#endregion
 //#region INSERE MODULO
 function InserirModulo() {
     let modulo = {
@@ -54,14 +62,12 @@ function RemoverModulo(codModulo) {
 //#endregion
 //#region EDITA MODULO
 $('#modalEdicao').on('show.bs.modal', function (event) {
-    let auxClick = $(event.relatedTarget)
-    let dados = auxClick.data('whatever')
-    
-    $("#idModulo").val(dados)
+    let auxClick = $(event.relatedTarget)   
+    $("#NomeModulo").val($("#NomeModuloSelecionado").val())
 })
 function SalvarEditModulo() {  
     let modulo = {
-        CodModulo: $("#idModulo").val(),
+        CodModulo: $("#CodModuloSelecionado").val(),
         NomeModulo: $("#NomeModulo").val()
     };
     $.ajax({
