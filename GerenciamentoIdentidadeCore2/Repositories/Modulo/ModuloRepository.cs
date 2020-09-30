@@ -27,7 +27,25 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Modulo
                 ExecutarComando(command);
             }
         }
-
+        public void EditarModulo(IModulo modulo)
+        {
+            var sql = @"UPDATE MODULO M SET M.NOME_MODULO = @NOME_MODULO WHERE M.COD_MODULO = @COD_MODULO";
+            using (var command = new MySqlCommand(sql))
+            {
+                command.Parameters.AddWithValue("NOME_MODULO", modulo.NomeModulo);
+                command.Parameters.AddWithValue("COD_MODULO", modulo.CodModulo);
+                ExecutarComando(command);
+            }
+        }
+        public void RemoverModulo(IModulo modulo)
+        {
+            var sql = @"DELETE FROM MODULO WHERE COD_MODULO = @COD_MODULO";
+            using (var command = new MySqlCommand(sql))
+            {
+                command.Parameters.AddWithValue("COD_MODULO", modulo.CodModulo);
+                ExecutarComando(command);
+            }
+        }
         public List<ModuloVD> CarregarListaModulo()
         {
             List<ModuloVD> lista = new List<ModuloVD>();

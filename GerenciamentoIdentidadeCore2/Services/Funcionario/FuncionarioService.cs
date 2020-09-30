@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using System.Collections.Generic;
 using GerenciamentoIdentidadeCore2.Models;
 using GerenciamentoIdentidadeCore2.Models.Funcionario;
 using GerenciamentoIdentidadeCore2.Repositories.Repository;
@@ -11,6 +13,11 @@ namespace GerenciamentoIdentidadeCore2.Services.Funcionario
         public FuncionarioService(IFuncionarioRepository funcionarioRepository)
         {
             _repository = funcionarioRepository;
+        }
+
+        public List<FuncionarioVD> CarregarListaFuncionarios()
+        {
+            return _repository.CarregarListaFuncionarios();
         }
 
         public ResultadoVD InserirFuncionario(FuncionarioVD funcionario)

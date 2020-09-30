@@ -1,6 +1,8 @@
 ﻿using GerenciamentoIdentidadeCore2.Models.Funcionario;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GerenciamentoIdentidadeCore2.Repositories.Repository
 {
@@ -8,7 +10,23 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
     {
         public UsuarioGerenciamentoRepository(IConfiguration config) : base(config)
         {
+           
+        }
 
+        public List<FuncionarioVD> CarregarListaFuncionarios()
+        {
+            List<FuncionarioVD> listaFuncionario = new List<FuncionarioVD>();
+            string sql = @"SELECT
+	                           F.CPF,
+	                           F.NOME_FUNCIONARIO,
+                               P.NOME_PERFIL
+                               FROM
+	                           FUNCIONARIO F INNER JOIN PERFIL P ON F.COD_PERFIL = P.COD_PERFIL;";
+
+            using (var cmd = new MySqlCommand(sql))
+                listaFuncionario = ObterRegistros(cmd).ToList();
+
+            return listaFuncionario;
         }
 
         public void InserirFuncionario(FuncionarioVD funcionario)
@@ -25,6 +43,15 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
 
                 ExecutarComando(cmd);
             }
-        }          
+        }
+
+        public override FuncionarioVD PopularDados(MySqlDataReader dr)
+        {
+            return new FuncionarioVD
+            {
+                Cpf = dr["CPF"].ToString(),
+                Nome = dr["NOME_FUNCIONARIO"].ToString()                
+            };
+        }
     }
 }

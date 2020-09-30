@@ -18,6 +18,8 @@ namespace GerenciamentoIdentidadeCore2.Controllers
         public IActionResult Index()
         {
             ViewBag.ListaPerfis = _servicePerfil.CarregarListaPerfis();
+            ViewBag.ListaFuncionarios = _serviceFuncionario.CarregarListaFuncionarios();
+
             return View("CadastroFuncionario");
         }
 
@@ -25,6 +27,10 @@ namespace GerenciamentoIdentidadeCore2.Controllers
         {
             FuncionarioVD funcionario = new FuncionarioVD(cpf, nome, new PerfilVD(codPerfil));
             return Json(_serviceFuncionario.InserirFuncionario(funcionario));
+        }
+        public IActionResult GridFuncionarios()
+        {
+            return PartialView("GridFuncionarios");
         }
 
     }
