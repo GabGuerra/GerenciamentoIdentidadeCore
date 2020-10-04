@@ -20,10 +20,11 @@ function InsereFuncionario() {
         data: { cpf: cpf, nome: nome, codPerfil: codPerfil },
         contentType: "application/json; charset=utf-8",
         dataType: "json",
+        async:false,
         success: function (result) {
             if (result.sucesso) {
                 alert("Funcionário inserido com sucesso!")
-                RedirecionaParaPagina("Funcionario", "Index");
+               
             }
             else
                 alert("Erro ao inserir novo funcionário");
@@ -32,6 +33,7 @@ function InsereFuncionario() {
             console.log(result);
         }
     });
+    RedirecionaParaPagina("Funcionario", "Index");
 };
 //#endregion
 //#region REMOVE FUNCIONARIO
@@ -64,8 +66,6 @@ $('#modalEdicao').on('show.bs.modal', function (event) {
     $("#cpfFuncionarioSelecionado").val(objAux.cpf)
     $("#selPerfil").val(objAux.codperfil);
     $("#NomeFuncionario").val(objAux.nome);
-
-    //$("#idModulo").val(dados)
 });
 
 function SalvarEditFuncionario() {

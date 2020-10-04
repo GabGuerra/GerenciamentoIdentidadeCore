@@ -12,10 +12,10 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
     {
         public UsuarioGerenciamentoRepository(IConfiguration config) : base(config)
         {
-           
+
         }
 
-        
+
 
         public List<FuncionarioVD> CarregarListaFuncionarios()
         {
@@ -29,8 +29,9 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
                                ORDER BY F.NOME_FUNCIONARIO; ";
 
             using (var cmd = new MySqlCommand(sql))
+            {
                 listaFuncionario = ObterRegistros(cmd).ToList();
-
+            }
             return listaFuncionario;
         }
 
@@ -39,7 +40,7 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
             string sql = @"INSERT INTO FUNCIONARIO
                                 (CPF, NOME_FUNCIONARIO, COD_PERFIL)
                            VALUES
-                                (@CPF,@NOME_FUNCIONARIO, @COD_PERFIL)";            
+                                (@CPF,@NOME_FUNCIONARIO, @COD_PERFIL)";
             using (var cmd = new MySqlCommand(sql))
             {
                 cmd.Parameters.AddWithValue("CPF", funcionario.Cpf);
@@ -68,7 +69,7 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
             string sql = @"DELETE FROM FUNCIONARIO WHERE CPF= @CPF";
             using (var cmd = new MySqlCommand(sql))
             {
-                cmd.Parameters.AddWithValue("CPF", cpf);         
+                cmd.Parameters.AddWithValue("CPF", cpf);
                 ExecutarComando(cmd);
             }
         }
@@ -79,11 +80,11 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Repository
             return new FuncionarioVD
             {
                 Cpf = dr["CPF"].ToString(),
-                Nome = dr["NOME_FUNCIONARIO"].ToString()  ,                
+                Nome = dr["NOME_FUNCIONARIO"].ToString(),
                 Perfil = perfil
             };
         }
 
-     
+
     }
 }

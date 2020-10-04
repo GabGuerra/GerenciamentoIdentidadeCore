@@ -50,10 +50,11 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Modulo
         {
             List<ModuloVD> lista = new List<ModuloVD>();
             var sql = @"SELECT
-	                        COD_MODULO,
-                            NOME_MODULO
+	                        M.COD_MODULO,
+                            M.NOME_MODULO,
+                            if((SELECT 1 FROM PERFIL_MODULO WHERE COD_MODULO= M.COD_MODULO GROUP BY M.COD_MODULO) > 0, 1, 0) IND_VINCULO_MODULO   
                         FROM
-	                        MODULO";
+	                        MODULO M";
             using (var cmd = new MySqlCommand(sql))
             {
                 lista = ObterRegistros(cmd).ToList();
@@ -67,7 +68,8 @@ namespace GerenciamentoIdentidadeCore2.Repositories.Modulo
             return new ModuloVD
             {
                 CodModulo = Convert.ToInt32(dr["COD_MODULO"]),
-                NomeModulo = dr["NOME_MODULO"].ToString()
+                NomeModulo = dr["NOME_MODULO"].ToString(),
+                IndVinculoModulo = Convert.ToBoolean(dr["IND_VINCULO_MODULO"])
             };
         }
     }

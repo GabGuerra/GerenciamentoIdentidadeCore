@@ -22,5 +22,7 @@ namespace GerenciamentoIdentidadeCore2.Models.Perfil
         }
         public int CodPerfil { get; set; }
         public string NomePerfil { get; set; }
+        //indica se possui vinculo com algum funcionario para permitir exclusao caso nao haja
+        public bool IndVinculoFuncionario { get; set; }
     }
 }

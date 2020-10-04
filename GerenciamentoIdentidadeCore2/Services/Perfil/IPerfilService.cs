@@ -6,8 +6,10 @@ namespace GerenciamentoIdentidadeCore2.Controllers
 {
     public interface IPerfilService
     {
-        public ResultadoVD InserirPerfilPermissao(PerfilVD perfil, int[] listaModulosPermitidos);        
-
+        public ResultadoVD InserirPerfilPermissao(PerfilVD perfil, string listaModulosPermitidos);        
+        public ResultadoVD RemoverPerfil(int codPerfil);        
         public List<PerfilVD> CarregarListaPerfis();
+        public string CarregaListaPermissoesPerfil(int codPerfil);
+        public ResultadoVD AtualizarPerfil(PerfilVD perfil, string listaPermissoesPerfil);
     }
 }

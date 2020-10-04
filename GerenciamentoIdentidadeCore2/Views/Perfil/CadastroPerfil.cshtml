@@ -8,35 +8,52 @@
     ViewBag.Title = "CadastroPerfil";
 }
 @using GerenciamentoIdentidadeCore2.Models.Modulo
-<div class="row">
-    <div class="card col-12" id="divCadastroModulo">
-        <div class="card-body">
-            <h5 class="card-title" align="center">Cadastrar Perfil</h5>
-            <div class="form-group col-12">
-                <form id="CadastroPerfilForm" class="form col-md-12">
-                    <div class="form-group">
-                        <label for="InputDscPerfil">Nome do Perfil</label>
-                        <input name="InputDscPerfil" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Descrição Perfil">
-                    </div>
-                    <div>
-                        <h6>Módulos permitidos</h6>
-                        @foreach (ModuloVD i in ViewBag.ListaModulos)
-                        {
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="@i.CodModulo" id="chkPermissaoModulo_@i.CodModulo">
-                                <label class="form-check-label" for="chkPermissaoModulo_@i.CodModulo">
-                                    @i.NomeModulo
-                                </label>
-                            </div>
-                        }
-                    </div>                                                                
-                    <div id="btnRegistrarPerfil" class="form-group">
-                        <button type="submit" value="submit" class="btn btn-success text-center col-12">Salvar</button>
-                    </div>
-                </form>                
-            </div>
+<div class="card col-12" id="divCadastroModulo">
+    <ul class="nav nav-tabs">
+        <li id="abaRegistrarPerfil" onclick="ControlaGridAtivo(abaRegistrarPerfil)" class="nav-item">
+            <a id="navLinkRegistrarPerfil" class="nav-link active" href="#">Registrar Perfil</a>
+        </li>
+        <li id="abaPesquisarPerfil" onclick="ControlaGridAtivo(abaPesquisarPerfil)" class="nav-item">
+            <a class="nav-link" href="#">Pesquisar Perfil</a>
+        </li>
+    </ul>
+    <div class="card-body">
+        <h5 class="card-title" align="center">Cadastrar Perfil</h5>
+        <div class="card-body" id="gridRegistrarPerfil">
+            <form id="CadastroPerfilForm" class="form col-md-12">
+                <div class="form-group">
+                    <label for="InputDscPerfil">Nome do Perfil</label>
+                    <input name="InputDscPerfil" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Descrição Perfil">
+                </div>
+                <div>
+                    <h6>Módulos permitidos</h6>
+                    @foreach (ModuloVD i in ViewBag.ListaModulos)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="@i.CodModulo" id="chkPermissaoModulo_@i.CodModulo">
+                            <label class="form-check-label" for="chkPermissaoModulo_@i.CodModulo">
+                                @i.NomeModulo
+                            </label>
+                        </div>
+                    }
+                </div>
+                <div id="btnRegistrarPerfil" class="form-group">
+                    <button type="submit" value="submit" class="btn btn-success text-center col-12">Salvar</button>
+                </div>
+            </form>
         </div>
     </div>
+    <!--Pesquisa de Perfil-->
+    <div class="col-12" id="gridPesquisarPerfil">
+        <div class="input-group md-form form-sm form-2 pl-0 col-12">
+            <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="InputPesquisaPerfil">
+        </div>
+
+        <div id="recebeGridListaPerfils">
+            @await Html.PartialAsync("GridPerfils")
+        </div>
+    </div>
+
 </div>
 <script src="~/js/Perfil/CadastroPerfil.js"></script>
 
@@ -45,4 +62,7 @@
         margin-top: 20px
     }
 
+    #navLinkRegistrarPerfil {
+        border-left: none !important;
+    }
 </style>

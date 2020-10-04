@@ -1,45 +1,45 @@
 ﻿<script src="~/js/Modulo/Modulo.js"></script>
 
-<div id="container" class="row">
-    <div class="card col-12" id="containerModulo">
-        <ul class="nav nav-tabs">
-            <li id="abaRegistrarModulo" onclick="ControlaGridAtivo(abaRegistrarModulo)" class="nav-item">
-                <a id="navLinkRegistrarModulo" class="nav-link active" href="#">Registrar módulo</a>
-            </li>
-            <li id="abaPesquisarModulo" onclick="ControlaGridAtivo(abaPesquisarModulo)" class="nav-item">
-                <a class="nav-link" href="#">Pesquisar módulos</a>
-            </li>
-        </ul>
-        <div class="card-body">
-            <!--Cadastro de módulo-->
-            <div id="gridRegistrarModulo">
-                <h5 class="card-title" align="center">Cadastrar módulo</h5>
-                <div class="form-group col-12">
-                    <div>
-                        <label for="inputNomeModulo">Nome do módulo</label>
-                        <input class="form-control col-12" id="inputNomeModulo" />
-                        <button class="btn btn-success col-12" id="btnCadastrarModulo" type="button" onclick="InserirModulo()">Salvar</button>
-                    </div>
-                </div>
-            </div>
 
-            <!--Pesquisa de módulo-->
-            <div class="col-12" id="gridPesquisarModulo">
-                <div class="input-group md-form form-sm form-2 pl-0 col-12">
-                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="InputPesquisaModulo">                 
-                </div>
-
-                <div id="recebeGridListaModulos">
-                    @await Html.PartialAsync("GridModulos")
+<div class="card col-12" id="containerModulo">
+    <ul class="nav nav-tabs">
+        <li id="abaRegistrarModulo" onclick="ControlaGridAtivo(abaRegistrarModulo)" class="nav-item">
+            <a id="navLinkRegistrarModulo" class="nav-link active" href="#">Registrar módulo</a>
+        </li>
+        <li id="abaPesquisarModulo" onclick="ControlaGridAtivo(abaPesquisarModulo)" class="nav-item">
+            <a class="nav-link" href="#">Pesquisar módulos</a>
+        </li>
+    </ul>
+    <div class="card-body">
+        <!--Cadastro de módulo-->
+        <div id="gridRegistrarModulo">
+            <h5 class="card-title" align="center">Cadastrar módulo</h5>
+            <div class="form-group col-12">
+                <div>
+                    <label for="inputNomeModulo">Nome do módulo</label>
+                    <input class="form-control col-12" id="inputNomeModulo" />
+                    <button class="btn btn-success col-12" id="btnCadastrarModulo" type="button" onclick="InserirModulo()">Salvar</button>
                 </div>
             </div>
         </div>
 
+        <!--Pesquisa de módulo-->
+        <div class="col-12" id="gridPesquisarModulo">
+            <div class="input-group md-form form-sm form-2 pl-0 col-12">
+                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="InputPesquisaModulo">
+            </div>
+
+            <div id="recebeGridListaModulos">
+                @await Html.PartialAsync("GridModulos")
+            </div>
+        </div>
     </div>
+
 </div>
 
 
-<script>   
+
+<script>
 </script>
 <style>
     #container {

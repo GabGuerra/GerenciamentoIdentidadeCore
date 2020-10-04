@@ -9,5 +9,6 @@ namespace GerenciamentoIdentidadeCore2.Models.Modulo
     {
         public int CodModulo { get; set; }
         public string NomeModulo { get; set; }
+        public bool IndVinculoModulo { get; set; }
     }
 }

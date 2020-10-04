@@ -3,58 +3,58 @@
 @{
     ViewBag.Title = "Index";
 }
-<div id="container" class="row">
-    <div class="card col-12" id="containerFuncionario">
-        <ul class="nav nav-tabs">
-            <li id="abaRegistrarFuncionario" onclick="ControlaGridAtivo(abaRegistrarFuncionario)" class="nav-item">
-                <a id="navLinkRegistrarModulo" class="nav-link active" href="#">Registrar Funcionário</a>
-            </li>
-            <li id="abaPesquisarFuncionario" onclick="ControlaGridAtivo(abaPesquisarFuncionario)" class="nav-item">
-                <a class="nav-link" href="#">Pesquisar Funcionário</a>
-            </li>
-        </ul>
-        <div class="card-body">
-            <!-- Cadastro de funcionario-->
-            <div id="gridRegistrarFuncionario" class="card-body">
-                <form id="CadastroFuncionarioForm"> 
-                    <h5 class="card-title" align="center">Cadastrar funcionário</h5>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Nome</label>
-                        <input id="inputNomeFuncionario" name="nome" type="text" class="form-control" placeholder="Nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">CPF</label>
-                        <input id="inputCpfCadFuncionario" name="cpf" type="text" class="form-control" placeholder="CPF">
-                    </div>
-                    <div class="form-group">
-                        <label for="selCargo">Perfil</label>
-                        <select id="selCargo" name="selCargo" class="form-control">
-                            <option value=0></option>
-                            @foreach (PerfilVD i in ViewBag.ListaPerfis)
-                            {
-                                <option value="@i.CodPerfil">@i.NomePerfil</option>
-                            }
-                        </select>
-                    </div>
-                    <button class="btn btn-success col-12" onclick="InsereFuncionario()">Registrar</button>
-                </form>
-            </div>
 
-
-            <!--Pesquisa de Funcionario-->
-            <div class="col-12" id="gridPesquisarFuncionario">
-                <div class="input-group md-form form-sm form-2 pl-0 col-12">
-                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="InputPesquisaFuncionario">               
+<div class="card col-12" id="containerFuncionario">
+    <ul class="nav nav-tabs">
+        <li id="abaRegistrarFuncionario" onclick="ControlaGridAtivo(abaRegistrarFuncionario)" class="nav-item">
+            <a id="navLinkRegistrarFuncionario" class="nav-link active" href="#">Registrar Funcionário</a>
+        </li>
+        <li id="abaPesquisarFuncionario" onclick="ControlaGridAtivo(abaPesquisarFuncionario)" class="nav-item">
+            <a class="nav-link" href="#">Pesquisar Funcionário</a>
+        </li>
+    </ul>
+    <div class="card-body">
+        <!-- Cadastro de funcionario-->
+        <div id="gridRegistrarFuncionario" class="card-body">
+            <form id="CadastroFuncionarioForm">
+                <h5 class="card-title" align="center">Cadastrar funcionário</h5>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nome</label>
+                    <input id="inputNomeFuncionario" name="nome" type="text" class="form-control" placeholder="Nome">
                 </div>
-
-                <div id="recebeGridListaFuncionarios">
-                    @await Html.PartialAsync("GridFuncionarios")
+                <div class="form-group">
+                    <label for="exampleInputEmail1">CPF</label>
+                    <input id="inputCpfCadFuncionario" name="cpf" type="text" class="form-control" placeholder="CPF">
                 </div>
-            </div>
-
+                <div class="form-group">
+                    <label for="selCargo">Perfil</label>
+                    <select id="selCargo" name="selCargo" class="form-control">
+                        <option value=0></option>
+                        @foreach (PerfilVD i in ViewBag.ListaPerfis)
+                        {
+                            <option value="@i.CodPerfil">@i.NomePerfil</option>
+                        }
+                    </select>
+                </div>
+                <button class="btn btn-success col-12" onclick="InsereFuncionario()">Registrar</button>
+            </form>
         </div>
+
+
+        <!--Pesquisa de Funcionario-->
+        <div class="col-12" id="gridPesquisarFuncionario">
+            <div class="input-group md-form form-sm form-2 pl-0 col-12">
+                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="InputPesquisaFuncionario">
+            </div>
+
+            <div id="recebeGridListaFuncionarios">
+                @await Html.PartialAsync("GridFuncionarios")
+            </div>
+        </div>
+
     </div>
 </div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 <script src="~/js/Usuario/CadastroFuncionario.js"></script>
 <style>
@@ -64,5 +64,9 @@
 
     .chkbox {
         margin-left: 4px
+    }
+
+    #navLinkRegistrarFuncionario {
+        border-left: none !important;
     }
 </style>

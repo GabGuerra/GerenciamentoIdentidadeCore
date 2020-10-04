@@ -21,6 +21,10 @@ namespace GerenciamentoIdentidadeCore2.Repositories
         {
             return null;
         }
+        public virtual string PopularRegistroString(MySqlDataReader dr, string coluna)
+        {
+            return null;
+        }
 
         protected IEnumerable<T> ObterRegistros(MySqlCommand cmd)
         {
@@ -59,6 +63,32 @@ namespace GerenciamentoIdentidadeCore2.Repositories
                 {
                     if (dr.Read())
                         registro = PopularDados(dr);
+                }
+                finally
+                {
+                    dr.Close();
+                }
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return registro;
+        }
+        protected string ObterRegistroStrings(MySqlCommand cmd, string coluna)
+        {
+            string registro = "";
+            cmd.Connection = _conn;
+            _conn.Open();
+            try
+            {
+                var dr = cmd.ExecuteReader();
+                try
+                {
+                    while (dr.Read())
+                    {
+                        registro = registro + PopularRegistroString(dr, coluna) + ",";
+                    }
                 }
                 finally
                 {
